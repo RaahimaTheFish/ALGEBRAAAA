@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algebra Game</title>
+    <style>
+        body {
+            background-color: purple;
+            color: blue;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Algebra Game</h1>
+    <p>Solve the equation:</p>
+    <p id="equation"></p>
+    <input type="number" id="answer" placeholder="Enter your answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        var x, a, b;
+
+        function generateEquation() {
+            x = Math.floor(Math.random() * 10);
+            a = Math.floor(Math.random() * 10);
+            b = x + a;
+            document.getElementById('equation').textContent = 'x + ' + a + ' = ' + b;
+        }
+
+        function checkAnswer() {
+            var answer = document.getElementById('answer').value;
+            if (answer == x) {
+                document.getElementById('result').textContent = 'Correct! Well done.';
+            } else {
+                document.getElementById('result').textContent = 'Incorrect. Try again.';
+            }
+            generateEquation();
+        }
+
+        generateEquation();
+    </script>
+</body>
+</html>
+
